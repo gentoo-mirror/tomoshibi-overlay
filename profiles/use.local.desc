@@ -5,6 +5,8 @@
 app-misc/screen:multiuser - Enable multiuser support (by setting correct permissions)
 app-misc/screen:nethack - Express error messages in nethack style
 app-misc/screen:utempter - Enable support for sys-libs/libutempter
+media-sound/carla:rdf - Enable LADSPA-RDF support
+media-sound/carla:sf2 - Enable builtin SF2 sample support using media-sound/fluidsynth
 x11-misc/figma-linux:doc - Install package documentation
 x11-misc/figma-linux:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled
 x11-misc/figma-linux:system-mesa - Use the system-wide media-libs/mesa instead of bundled
