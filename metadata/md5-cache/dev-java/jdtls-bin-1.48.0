@@ -1,0 +1,13 @@
+DEFINED_PHASES=install preinst prepare setup
+DEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+DESCRIPTION=Java language server
+EAPI=8
+HOMEPAGE=https://github.com/eclipse/eclipse.jdt.ls
+INHERIT=java-pkg-2
+KEYWORDS=~amd64
+LICENSE=EPL
+RDEPEND=>=virtual/jre-1.8:* >=dev-java/java-config-2.2.0-r3
+SLOT=0
+SRC_URI=https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.48.0-202505152338.tar.gz -> jdtls-1.48.0.tar.gz
+_eclasses_=java-utils-2	c610b1541a10e37cb26ab5b707a744f1	java-pkg-2	38fd81c7880666a00a638ca8deb64d72
+_md5_=f0d8d604454e35925128722b2ec4b74c
