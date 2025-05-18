@@ -34,20 +34,34 @@ src_prepare() {
 }
 
 src_install() {
-	insinto /usr/share/grub/themes/minegrub
+	insinto /boot/grub/themes/minegrub
 	doins -r ./minegrub/*
 }
 
 pkg_postinst() {
-  elog "To activate the minegrub-theme, set the GRUB_THEME variable in /etc/default/grub, e.g.:"
-  elog "    GRUB_THEME=\"/usr/share/grub/themes/minegrub/theme.txt\""
-  elog ""
-  elog "Then regenerate the GRUB configuration with one of the following commands, depending on your system:"
-  elog "  - grub-mkconfig -o /boot/grub/grub.cfg           # Most Gentoo and many distros"
-  elog "  - update-grub                                   # Debian/Ubuntu wrapper"
-  elog "  - grub2-mkconfig -o /boot/efi/EFI/<distro>/grub.cfg  # Fedora/RHEL EFI systems"
-  elog ""
-  elog "Finally, reboot to see your new GRUB theme in action."
+	elog "If you're installing double-minegrub-menu, please skip this message"
+	elog ""
+	elog "To activate the minegrub-theme, set the GRUB_THEME variable in /etc/default/grub, e.g.:"
+	elog "    GRUB_THEME=\"/boot/grub/themes/minegrub/theme.txt\""
+	elog ""
+	elog "Then regenerate the GRUB configuration with one of the following commands, depending on your system:"
+	elog "  - grub-mkconfig -o /boot/grub/grub.cfg           # Most Gentoo and many distros"
+	elog "  - update-grub                                   # Debian/Ubuntu wrapper"
+	elog "  - grub2-mkconfig -o /boot/efi/EFI/<distro>/grub.cfg  # Fedora/RHEL EFI systems"
+	elog ""
+	elog "Finally, reboot to see your new GRUB theme in action."
 }
 
-
+pkg_postrm() {
+	elog "The GRUB theme has been removed."
+	elog "If you were using this theme, make sure to edit /etc/default/grub"
+	elog "to remove or change the GRUB_THEME setting:"
+	elog ""
+	elog "    sudo nano /etc/default/grub"
+	elog ""
+	elog "Then regenerate your grub.cfg:"
+	elog ""
+	elog "    sudo grub-mkconfig -o /boot/grub/grub.cfg"
+	elog ""
+	elog "Failing to do so may result in a broken GRUB menu or a failed boot!"
+}
