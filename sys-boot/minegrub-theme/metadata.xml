@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "https://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+  <maintainer type="person">
+    <email>dangduong31205@gmail.com</email>
+    <name>Nguyen Dinh Dang Duong</name>
+  </maintainer>
+  <use>
+    <flag name="theme0">1.8  - [Classic Minecraft].png</flag>
+    <flag name="theme1">1.13 - [Aquatic update].png</flag>
+    <flag name="theme2">1.14 - [Village and Pillage].png</flag>
+    <flag name="theme3">1.15 - [Buzzy Bees].png</flag>
+    <flag name="theme4">1.16 - [Nether Update].png</flag>
+    <flag name="theme5">1.17 - [Caves And Cliffs].png</flag>
+    <flag name="theme6">1.18 - [Caves And Cliffs 2].png</flag>
+    <flag name="theme7">1.19 - [The Wild Update].png</flag>
+    <flag name="theme8">1.20 - [Trails &amp; Tales].png</flag>
+    <flag name="theme9">Alpha.png</flag>
+    <flag name="theme10">Alpha featuring Herobrine.png</flag>
+    <flag name="theme11">The End.png</flag>
+    <flag name="theme12">pack.png.png</flag>
+  </use>
+</pkgmetadata>
