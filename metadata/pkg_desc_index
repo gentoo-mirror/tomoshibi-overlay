@@ -6,6 +6,7 @@ dev-lang/dart-bin 3.7.2: The Dart SDK, including the VM, dart2js, core libraries
 dev-lang/flutter 3.29.2: A client-optimized langauge for fast apps on any platform
 media-sound/carla 2.5.9: Fully-featured audio plugin host, supports many audio drivers and plugin formats
 net-p2p/JDownloader2 0.1: JDownloader2 is a Java download tool. It simplifies downloading files from One-Click-Hosters like Rapidshare.com or Megaupload.com
+sys-boot/minegrub-theme 3.1.0: A Grub Theme in the style of Minecraft!
 www-client/zen-browser-bin 1.12.5b: Zen Browser - A fast, privacy-focused Firefox fork
 x11-misc/figma-linux 0.11.5: Unofficial desktop application for linux
 x11-misc/spt 0.6: simple pomodoro timer

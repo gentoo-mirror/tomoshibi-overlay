@@ -1,0 +1,13 @@
+DEFINED_PHASES=install postinst prepare
+DEPEND=sys-boot/grub
+DESCRIPTION=A Grub Theme in the style of Minecraft!
+EAPI=8
+HOMEPAGE=https://github.com/Lxtharia/minegrub-theme
+IUSE=theme0 theme1 theme2 theme3 theme4 theme5 theme6 theme7 theme8 theme9 theme10 theme11 theme12
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-boot/grub
+REQUIRED_USE=^^ ( theme0 theme1 theme2 theme3 theme4 theme5 theme6 theme7 theme8 theme9 theme10 theme11 theme12 )
+SLOT=0
+SRC_URI=https://codeload.github.com/Lxtharia/minegrub-theme/tar.gz/refs/tags/v3.1.0 -> minegrub-theme-3.1.0.tar.gz
+_md5_=0c35d2aec0eb1718014e4f3f797908c0

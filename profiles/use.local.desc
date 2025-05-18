@@ -7,6 +7,19 @@ app-misc/screen:nethack - Express error messages in nethack style
 app-misc/screen:utempter - Enable support for sys-libs/libutempter
 media-sound/carla:rdf - Enable LADSPA-RDF support
 media-sound/carla:sf2 - Enable builtin SF2 sample support using media-sound/fluidsynth
+sys-boot/minegrub-theme:theme0 - 1.8 - [Classic Minecraft].png
+sys-boot/minegrub-theme:theme1 - 1.13 - [Aquatic update].png
+sys-boot/minegrub-theme:theme10 - Alpha featuring Herobrine.png
+sys-boot/minegrub-theme:theme11 - The End.png
+sys-boot/minegrub-theme:theme12 - pack.png.png
+sys-boot/minegrub-theme:theme2 - 1.14 - [Village and Pillage].png
+sys-boot/minegrub-theme:theme3 - 1.15 - [Buzzy Bees].png
+sys-boot/minegrub-theme:theme4 - 1.16 - [Nether Update].png
+sys-boot/minegrub-theme:theme5 - 1.17 - [Caves And Cliffs].png
+sys-boot/minegrub-theme:theme6 - 1.18 - [Caves And Cliffs 2].png
+sys-boot/minegrub-theme:theme7 - 1.19 - [The Wild Update].png
+sys-boot/minegrub-theme:theme8 - 1.20 - [Trails & Tales].png
+sys-boot/minegrub-theme:theme9 - Alpha.png
 x11-misc/figma-linux:doc - Install package documentation
 x11-misc/figma-linux:system-ffmpeg - Use the system-wide media-video/ffmpeg instead of bundled
 x11-misc/figma-linux:system-mesa - Use the system-wide media-libs/mesa instead of bundled
