@@ -3,51 +3,42 @@
 
 EAPI=8
 
-DESCRIPTION="A Grub Theme in the style of Minecraft!"
-HOMEPAGE="https://github.com/Lxtharia/minegrub-theme"
-SRC_URI="https://codeload.github.com/Lxtharia/minegrub-theme/tar.gz/refs/tags/v${PV} -> ${P}.tar.gz"
+DESCRIPTION="The REAL minecraft experience when booting your system!"
+HOMEPAGE="https://github.com/Lxtharia/double-minegrub-menu"
+SRC_URI="https://codeload.github.com/Lxtharia/double-minegrub-menu/tar.gz/refs/tags/v${PV} -> ${P}.tar.gz"
 
 LICENSE="MIT"
 SLOT="0"
 KEYWORDS="~amd64"
 
-DEPEND="sys-boot/grub"
+DEPEND="
+	sys-boot/grub
+	sys-boot/minegrub-theme
+	sys-boot/minegrub-world-selection-theme
+"
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
-IUSE="theme0 theme1 theme2 theme3 theme4 theme5 theme6 theme7 theme8 theme9 theme10 theme11 theme12"
-REQUIRED_USE="^^ ( theme0 theme1 theme2 theme3 theme4 theme5 theme6 theme7 theme8 theme9 theme10 theme11 theme12 )"
+src_install()
+{
+	insinto /boot/grub
+	doins ./mainmenu.cfg
 
-src_prepare() {
-	default
-	patch -p1 < "${FILESDIR}/choose-background-script.patch" || die "Cannot patch"
-
-	chosen_ind=0
-	for i in {0..12}; do
-		if use "theme$i"; then
-			chosen_ind=$i
-			break
-		fi
-	done
-
-	./choose_background.sh $chosen_ind || die -q "Can not choose background"
-}
-
-src_install() {
-	insinto /boot/grub/themes/minegrub
-	doins -r ./minegrub/*
+	exeinto /etc/grub.d/
+	doexe ./05_twomenus
 }
 
 pkg_postinst() {
-	elog "If you're installing double-minegrub-menu, please skip this message"
-	elog ""
-	elog "To activate the minegrub-theme, set the GRUB_THEME variable in /etc/default/grub, e.g.:"
-	elog "    GRUB_THEME=\"/boot/grub/themes/minegrub/theme.txt\""
+	elog "To activate the double-minegrub-theme, set the GRUB_THEME variable in /etc/default/grub, e.g.:"
+	elog "    GRUB_THEME=\"/boot/grub/themes/minegrub-world-selection/theme.txt\""
 	elog ""
 	elog "Then regenerate the GRUB configuration with one of the following commands, depending on your system:"
 	elog "  - grub-mkconfig -o /boot/grub/grub.cfg           # Most Gentoo and many distros"
 	elog "  - update-grub                                   # Debian/Ubuntu wrapper"
 	elog "  - grub2-mkconfig -o /boot/efi/EFI/<distro>/grub.cfg  # Fedora/RHEL EFI systems"
+	elog ""
+	elog "To enable it, you need to set a grub environmental variable:"
+	elog "    sudo grub-editenv - set config_file=mainmenu.cfg"
 	elog ""
 	elog "Finally, reboot to see your new GRUB theme in action."
 }
@@ -58,6 +49,7 @@ pkg_postrm() {
 	elog "to remove or change the GRUB_THEME setting:"
 	elog ""
 	elog "    sudo nano /etc/default/grub"
+	elog "    sudo grub-editenv - unset config_file"
 	elog ""
 	elog "Then regenerate your grub.cfg:"
 	elog ""
