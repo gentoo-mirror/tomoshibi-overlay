@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=sys-boot/grub
+DESCRIPTION=A Grub Theme in the style of Minecraft world selection menu!
+EAPI=8
+HOMEPAGE=https://github.com/Lxtharia/minegrub-world-sel-theme
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-boot/grub
+SLOT=0
+SRC_URI=https://codeload.github.com/Lxtharia/minegrub-world-sel-theme/tar.gz/refs/tags/v1.0.0 -> minegrub-world-selection-theme-1.0.0.tar.gz
+_md5_=2b8d086de6c9eeee15b18287fa42669b

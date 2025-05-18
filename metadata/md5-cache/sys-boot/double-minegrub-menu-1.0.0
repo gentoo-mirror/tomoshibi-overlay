@@ -1,0 +1,11 @@
+DEFINED_PHASES=install postinst postrm
+DEPEND=sys-boot/grub sys-boot/minegrub-theme sys-boot/minegrub-world-selection-theme
+DESCRIPTION=The REAL minecraft experience when booting your system!
+EAPI=8
+HOMEPAGE=https://github.com/Lxtharia/double-minegrub-menu
+KEYWORDS=~amd64
+LICENSE=MIT
+RDEPEND=sys-boot/grub sys-boot/minegrub-theme sys-boot/minegrub-world-selection-theme
+SLOT=0
+SRC_URI=https://codeload.github.com/Lxtharia/double-minegrub-menu/tar.gz/refs/tags/v1.0.0 -> double-minegrub-menu-1.0.0.tar.gz
+_md5_=6107521fda36dafcf4d8a2860e632541
