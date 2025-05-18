@@ -1,0 +1,33 @@
+diff '--color=auto' -ur a/choose_background.sh b/choose_background.sh
+--- a/choose_background.sh	2025-05-19 02:25:53.404057392 +0700
++++ b/choose_background.sh	2025-05-19 02:30:12.467886769 +0700
+@@ -13,28 +13,16 @@
+ done
+ IFS=$SAVEIFS
+
+-echo "Choose which background you'd like!":
+-
+-ind=0
+-for f in "${backgrounds[@]}"; do
+-	echo "[$ind]: $f"
+-	ind=`expr $ind + 1`
+-done;
+-
+-echo -n '>> '
+-read chosen_ind
+-
++chosen_ind=$1
+ if ! [[ "$chosen_ind" =~ ^[0-9]+$ ]] ; then
+-	echo "Not changing background"
+	exit 1
+ fi
+
+ chosen_backgound=${backgrounds[$chosen_ind]}
+-echo "Chose option $chosen_ind:  $chosen_backgound"
+
+ if [[ "$chosen_backgound" == "" ]]; then
+-	echo Not changing background.
++	exit 1
+ else
+	cp "$chosen_backgound" "$SCRIPT_DIR/minegrub/background.png"
+ fi
