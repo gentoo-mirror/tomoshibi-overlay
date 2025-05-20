@@ -12,52 +12,77 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
-	x11-libs/gtk+:3
     media-libs/libglvnd
-    dev-libs/nss
-    media-libs/alsa-lib
-	net-libs/nodejs
+	app-accessibility/at-spi2-core:2
+	dev-libs/expat
+	dev-libs/glib:2
+	dev-libs/nspr
+	dev-libs/nss
+	media-libs/alsa-lib
+	media-libs/fontconfig
+	media-libs/freetype
+	media-libs/mesa
+	net-print/cups
+	sys-apps/dbus
+	sys-libs/glibc
+	x11-libs/cairo
+	x11-libs/gdk-pixbuf:2
+	x11-libs/gtk+:3
+	x11-libs/libX11
+	x11-libs/libxcb
+	x11-libs/libXcomposite
+	x11-libs/libXcursor
+	x11-libs/libXdamage
+	x11-libs/libXext
+	x11-libs/libXfixes
+	x11-libs/libXi
+	x11-libs/libXrandr
+	x11-libs/libXrender
+	x11-libs/libXtst
+	x11-libs/pango
 "
 RDEPEND="${DEPEND}"
 BDEPEND=""
 
 S="${WORKDIR}/zen"
 
-inherit desktop xdg
+inherit desktop xdg-utils
 
 src_install() {
-	insinto /opt/zen-browser/
+	#create dest dir
+	local destdir="/opt/zen"
+	insinto "${destdir}"
 	doins -r *
-
-	fperms 0755 /opt/zen-browser/zen
-
-	dodir /opt/bin
-	dosym ../zen-browser/zen /opt/bin/zen
-
+	#create a symlink to the binary
+	dosym "${destdir}/zen-bin" "/usr/bin/zen" || die
+	#add icons
 	local size
-	for size in 16 32 48 64 128 ; do
-		newicon -s ${size} "browser/chrome/icons/default/default${size}.png" zen-browser.png
+	for size in 16 32 48 64 128; do
+		newicon -s ${size} "browser/chrome/icons/default/default${size}.png" zen.png
 	done
-
-	make_desktop_entry "/opt/zen-browser/zen %U" "Zen Browser" "zen-browser" "Network;WebBrowser"
+	#create desktop file
+	make_desktop_entry "/usr/bin/zen" "Zen" zen "Network;WebBrowser"
+	#handle permissions of destdir files
+	fperms 0755 "${destdir}"/{zen-bin,updater,glxtest,vaapitest}
+	fperms 0750 "${destdir}"/pingsender
 
 	# Disable auto-updates
 	insinto /opt/zen-browser/distribution
 	cat << EOF > "${T}/policies.json" || die "Failed to create policies.json"
 {
-    "policies": {
-        "DisableAppUpdate": true
-    }
+	"policies": {
+		"DisableAppUpdate": true
+	}
 }
 EOF
-    doins "${T}/policies.json"
+	doins "${T}/policies.json"
 }
 
 pkg_postinst() {
-	einfo "Zen Browser is installed in /opt/zen-browser with its bundled libraries."
-    einfo "Auto-updates are disabled via policies.json."
-    einfo "Run 'ldd /opt/zen-browser/zen' to check for missing system dependencies if it fails to start."
-
+	elog "Zen Browser is installed in /opt/zen-browser with its bundled libraries."
+	elog "Auto-updates are disabled via policies.json."
+	elog "For optimal performance and compatibility, please ensure"
+	elog "that you have the latest graphics drivers installed."
 	xdg_desktop_database_update
     xdg_icon_cache_update
 }
