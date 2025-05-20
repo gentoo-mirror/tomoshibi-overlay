@@ -12,6 +12,7 @@ SLOT="0"
 KEYWORDS="~amd64"
 
 DEPEND="
+	sys-power/upower
     media-libs/libglvnd
 	app-accessibility/at-spi2-core:2
 	dev-libs/expat
@@ -67,7 +68,7 @@ src_install() {
 	fperms 0750 "${destdir}"/pingsender
 
 	# Disable auto-updates
-	insinto /opt/zen-browser/distribution
+	insinto ${destdir}/distribution
 	cat << EOF > "${T}/policies.json" || die "Failed to create policies.json"
 {
 	"policies": {
