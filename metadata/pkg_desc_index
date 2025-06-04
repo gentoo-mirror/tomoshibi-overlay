@@ -9,6 +9,6 @@ net-p2p/JDownloader2 0.1: JDownloader2 is a Java download tool. It simplifies do
 sys-boot/double-minegrub-menu 1.0.0: The REAL minecraft experience when booting your system!
 sys-boot/minegrub-theme 3.1.0: A Grub Theme in the style of Minecraft!
 sys-boot/minegrub-world-selection-theme 1.0.0: A Grub Theme in the style of Minecraft world selection menu!
-www-client/zen-browser-bin 1.12.8b: Zen Browser - A fast, privacy-focused Firefox fork
+www-client/zen-browser-bin 1.12.8b 1.12.10b: Zen Browser - A fast, privacy-focused Firefox fork
 x11-misc/figma-linux 0.11.5: Unofficial desktop application for linux
 x11-misc/spt 0.6: simple pomodoro timer
