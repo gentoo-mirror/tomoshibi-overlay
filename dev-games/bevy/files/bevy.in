@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+set -e
+
+TEMPLATE_DIR="@TEMPLATE_DIR@"
+VERSION="@VERSION@"
+
+usage() {
+	echo "Usage: $0 new <project_name>"
+	echo "       $0 version"
+	exit 1
+}
+
+if [[ "$1" == "new" && -n "$2" ]]; then
+	project_name="$2"
+	cargo new "$project_name" &> /dev/null
+	sed "s/@PROJECT_NAME@/${project_name}/g" \
+		"${TEMPLATE_DIR}/Cargo.toml.template" > "${project_name}/Cargo.toml"
+	cp "${TEMPLATE_DIR}/main.rs" "${project_name}/src/main.rs"
+
+	echo "Created Bevy project: \`$project_name'"
+	echo
+	echo "Next steps:"
+	echo "   cd $project_name"
+	echo "   cargo run               # Run your game"
+	echo
+	echo "Pro tips:"
+	echo "   cargo install cargo-watch"
+	echo "   cargo watch -x run      # Auto-rebuild & run on file changes"
+	echo
+	echo "Learn more: https://bevy.org/learn/quick-start/getting-started/setup/"
+elif [[ "$1" == "version" ]]; then
+	echo "Bevy engine version: ${VERSION}"
+	echo "Homepage: https://github.com/bevyengine/bevy"
+	echo "Wiki:     https://bevyengine.org/learn/"
+	echo "Bevy is free and open-source software."
+else
+	usage
+fi
