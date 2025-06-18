@@ -9,9 +9,7 @@ https://bevy.org
 https://dev-docs.bevy.org/bevy/index.html
 "
 
-SRC_URI="
-	https://codeload.github.com/bevyengine/bevy/tar.gz/refs/tags/v0.16.1 -> bevy-${PV}.tar.gz
-"
+SRC_URI=""
 
 LICENSE="|| ( Apache-2.0 MIT )"
 # Dependent crate licenses
