@@ -2,9 +2,6 @@
 # Please add your descriptions to your package's metadata.xml ONLY.
 # * generated automatically using pmaint *
 
-app-misc/screen:multiuser - Enable multiuser support (by setting correct permissions)
-app-misc/screen:nethack - Express error messages in nethack style
-app-misc/screen:utempter - Enable support for sys-libs/libutempter
 media-sound/carla:rdf - Enable LADSPA-RDF support
 media-sound/carla:sf2 - Enable builtin SF2 sample support using media-sound/fluidsynth
 sys-boot/minegrub-theme:theme0 - 1.8 - [Classic Minecraft].png
