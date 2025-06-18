@@ -40,6 +40,8 @@ BDEPEND="
 	virtual/pkgconfig
 "
 
+S=${WORKDIR}
+
 TEMPLATE_DIR="/usr/share/bevy"
 
 src_prepare() {
