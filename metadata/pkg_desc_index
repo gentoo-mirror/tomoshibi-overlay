@@ -1,3 +1,4 @@
+app-containers/lazydocker 0.24.1: Lazier way to manage everything docker
 app-emulation/proton-ge-custom-bin 10.4: A fancy custom distribution of Valves Proton with various patches
 app-misc/google-cloud-cli 515.0.0 9999: Google Cloud CLI
 app-misc/pomofocus 1.1.0: Pomodoro app
@@ -5,6 +6,7 @@ dev-games/bevy 0.16.1: A refreshingly simple data-driven game engine and app fra
 dev-java/jdtls-bin 1.48.0: Java language server
 dev-lang/dart-bin 3.7.2: The Dart SDK, including the VM, dart2js, core libraries, and more.
 dev-lang/flutter 3.29.2: A client-optimized langauge for fast apps on any platform
+media-gfx/glslViewer 3.2.4: Console-based GLSL live-coding viewer
 media-sound/carla 2.5.9: Fully-featured audio plugin host, supports many audio drivers and plugin formats
 net-p2p/JDownloader2 0.1: JDownloader2 is a Java download tool. It simplifies downloading files from One-Click-Hosters like Rapidshare.com or Megaupload.com
 sys-boot/double-minegrub-menu 1.0.0: The REAL minecraft experience when booting your system!
