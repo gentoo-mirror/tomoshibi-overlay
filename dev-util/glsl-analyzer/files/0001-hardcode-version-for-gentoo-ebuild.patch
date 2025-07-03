@@ -1,0 +1,25 @@
+From 6c51fec9f741c7d27a2709fed9ed7af8ce40f01a Mon Sep 17 00:00:00 2001
+From: Nguyen Dinh Dang Duong <dangduong31205@gmail.com>
+Date: Fri, 4 Jul 2025 03:04:51 +0700
+Subject: [PATCH] hardcode version for gentoo ebuild
+
+---
+ build.zig | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/build.zig b/build.zig
+index cb16dea..15792bc 100644
+--- a/build.zig
++++ b/build.zig
+@@ -97,7 +97,7 @@ fn attachModules(step: *std.Build.Step.Compile) !void {
+         &.{b.build_root.path orelse "."},
+     );
+     options.addOption([]const u8, "build_root", build_root_path);
+-    options.addOption([]const u8, "version", b.run(&.{ "git", "describe", "--tags", "--always" }));
++    options.addOption([]const u8, "version", "v1.6.0");
+     step.root_module.addOptions("build_options", options);
+ }
+ 
+-- 
+2.50.0
+
