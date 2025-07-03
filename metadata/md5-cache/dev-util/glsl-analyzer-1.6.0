@@ -1,0 +1,12 @@
+BDEPEND=|| ( dev-lang/zig:0.14 dev-lang/zig-bin:0.14 ) virtual/pkgconfig
+DEFINED_PHASES=compile configure install prepare setup test unpack
+DESCRIPTION=Language server for GLSL (OpenGL Shading Language)
+EAPI=8
+HOMEPAGE=https://github.com/nolanderc/glsl_analyzer
+INHERIT=zig
+KEYWORDS=~amd64
+LICENSE=GPL-3
+SLOT=0
+SRC_URI=https://codeload.github.com/nolanderc/glsl_analyzer/tar.gz/refs/tags/v1.6.0 -> glsl-analyzer-1.6.0.tar.gz
+_eclasses_=multiprocessing	1e32df7deee68372153dca65f4a7c21f	edo	a5e294016aa84979fcb2459749eb80b2	toolchain-funcs	f9d71a6efe9d083aec750dd13968e169	flag-o-matic	b892042b2667b8ac69ec8a2571dc290a	linux-info	efd923656513c879204fec6638eadee5	zig-utils	e6fd4920f41e4d125d20f9f2b2f55ece	zig	ab4efc32d65701e6797bcf22ed4cee27
+_md5_=859767494f2889042d389ff66b9464c5
