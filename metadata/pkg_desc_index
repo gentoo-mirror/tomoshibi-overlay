@@ -3,7 +3,7 @@ app-emulation/proton-ge-custom-bin 10.4: A fancy custom distribution of Valves P
 app-misc/google-cloud-cli 515.0.0 9999: Google Cloud CLI
 app-misc/pomofocus 1.1.0: Pomodoro app
 dev-games/bevy 0.16.1: A refreshingly simple data-driven game engine and app framework
-dev-java/jdtls-bin 1.48.0: Java language server
+dev-java/jdtls-bin 1.49.0_p202507030451: Java language server
 dev-lang/dart-bin 3.7.2: The Dart SDK, including the VM, dart2js, core libraries, and more.
 dev-lang/flutter 3.29.2: A client-optimized langauge for fast apps on any platform
 dev-python/pytest-lsp 0.4.3: A pytest plugin for end-to-end testing of language servers
