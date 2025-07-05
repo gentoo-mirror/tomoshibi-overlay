@@ -5,11 +5,12 @@ EAPI=8
 
 inherit java-pkg-2
 
+MY_PV=${PV/_p/-}
 MY_PN=${PN%%-bin}
 MY_P="${MY_PN}-${PV}"
 
 DESCRIPTION="Java language server"
-SRC_URI="https://download.eclipse.org/jdtls/snapshots/jdt-language-server-1.48.0-202505152338.tar.gz -> ${MY_P}.tar.gz"
+SRC_URI="https://download.eclipse.org/jdtls/snapshots/jdt-language-server-${MY_PV}.tar.gz -> ${MY_P}.tar.gz"
 HOMEPAGE="https://github.com/eclipse/eclipse.jdt.ls"
 
 LICENSE="EPL"
@@ -37,5 +38,16 @@ src_install() {
 	sed ${JDTLS_WRAPPER} -e "s;@PKGNAME@;${MY_PN};g" > wrapper
 	dodir /usr/bin
 	newbin wrapper ${MY_PN}
+}
+
+pkg_postinst() {
+	elog "If the JDT Language Server fails to start (e.g. ClassNotFoundException),"
+	elog "you may be running into stale Eclipse OSGi cache issues."
+	elog
+	elog "To fix this, remove the following directories:"
+	elog "  rm -rf \"\${XDG_DATA_HOME}/jdtls\" or rm -rf \"~/.local/share/jdtls\""
+	elog "  rm -rf \"\${XDG_STATE_HOME}/jdtls\" or rm -rf \"~/.local/state/jdtls\""
+	elog
+	elog "They will be recreated cleanly on the next launch."
 }
 
