@@ -3,17 +3,14 @@ app-emulation/proton-ge-custom-bin 10.4: A fancy custom distribution of Valves P
 app-misc/google-cloud-cli 515.0.0 9999: Google Cloud CLI
 app-misc/pomofocus 1.1.0: Pomodoro app
 dev-games/bevy 0.16.1: A refreshingly simple data-driven game engine and app framework
-dev-java/jdtls-bin 1.49.0_p202507030451: Java language server
 dev-lang/dart-bin 3.7.2: The Dart SDK, including the VM, dart2js, core libraries, and more.
 dev-lang/flutter 3.29.2: A client-optimized langauge for fast apps on any platform
 dev-python/pytest-lsp 0.4.3: A pytest plugin for end-to-end testing of language servers
 dev-util/glsl-analyzer 1.6.0: Language server for GLSL (OpenGL Shading Language)
-media-gfx/glslViewer 3.2.4: Console-based GLSL live-coding viewer
 media-sound/carla 2.5.9: Fully-featured audio plugin host, supports many audio drivers and plugin formats
 net-p2p/JDownloader2 0.1: JDownloader2 is a Java download tool. It simplifies downloading files from One-Click-Hosters like Rapidshare.com or Megaupload.com
 sys-boot/double-minegrub-menu 1.0.0: The REAL minecraft experience when booting your system!
 sys-boot/minegrub-theme 3.1.0: A Grub Theme in the style of Minecraft!
 sys-boot/minegrub-world-selection-theme 1.0.0: A Grub Theme in the style of Minecraft world selection menu!
-www-client/zen-browser-bin 1.12.10b 1.13.1b 1.13.2b 1.14b 1.14.1b: Zen Browser - A fast, privacy-focused Firefox fork
 x11-misc/figma-linux 0.11.5: Unofficial desktop application for linux
 x11-misc/spt 0.6: simple pomodoro timer
