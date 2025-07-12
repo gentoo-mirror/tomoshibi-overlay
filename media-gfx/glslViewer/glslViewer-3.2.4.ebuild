@@ -3,8 +3,9 @@
 
 EAPI=8
 
-PYTHON_COMPAT=( python3_{10..14} )
-inherit cmake flag-o-matic python-single-r1
+# pybind11 has not bump python to 3.14 yet
+PYTHON_COMPAT=( python3_{11..13} )
+inherit cmake flag-o-matic python-r1
 
 DESCRIPTION="Console-based GLSL live-coding viewer"
 HOMEPAGE="https://github.com/patriciogonzalezvivo/glslViewer"
@@ -49,35 +50,61 @@ src_configure() {
 		-DCMAKE_INSTALL_PREFIX=/usr
 		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"
 		-DNO_X11="$(usex X OFF ON)"
-		-DPYTHON_BINDINGS=$(usex python ON OFF)
 	)
-	if use python; then
-		python_export PYTHON
-		mycmakeargs+=(
-			-DPython3_EXECUTABLE="${PYTHON}"
-		)
-	fi
 	append-cxxflags "-DGL_OPENGL -DDRIVER_GLFW"
 	cmake_src_configure
+	if use python; then
+		python_foreach_impl python_configure
+	fi
+}
+
+python_configure() {
+	mkdir -p ${BUILD_DIR} || die "mkdir failed"
+	pushd "${BUILD_DIR}" > /dev/null || die "pushd failed"
+	local mycmakeargs=(
+		-DCMAKE_INSTALL_PREFIX=/usr
+		-DCMAKE_INSTALL_LIBDIR="$(get_libdir)"
+		-DNO_X11="$(usex X OFF ON)"
+		-DPYTHON_BINDINGS=ON
+		-DPython3_EXECUTABLE="${PYTHON}"
+	)
+	append-cxxflags "-DGL_OPENGL -DDRIVER_GLFW"
+	cmake_src_configure
+	popd >/dev/null || die "popd failed"
+}
+
+src_compile() {
+	cmake_src_compile
+	if use python; then
+		python_foreach_impl python_compile
+	fi
+}
+
+python_compile() {
+	pushd "${BUILD_DIR}" > /dev/null || die "pushd failed"
+	cmake_src_compile
+	popd >/dev/null || die "popd failed"
 }
 
 src_install() {
 	cmake_src_install
 	if use python; then
-		python_domodule "${BUILD_DIR}"/PyGlslViewer*.so || die "failed to install PyGlslViewer module"
+		python_foreach_impl python_install
 	fi
 	dodoc README.md
 }
 
+python_install() {
+	python_domodule "${BUILD_DIR}"/PyGlslViewer*.so || die "failed to install PyGlslViewer module"
+}
+
 pkg_postinst() {
-	default
 	xdg-icon-resource forceupdate || die
 	update-mime-database /usr/share/mime || die
 	update-desktop-database /usr/share/applications || die
 }
 
 pkg_postrm() {
-	default
 	update-mime-database /usr/share/mime || die
 	update-desktop-database /usr/share/applications || die
 }
