@@ -1,0 +1,8 @@
+DEFINED_PHASES=install prepare
+DESCRIPTION=LYGIA is a shader library of reusable functions.
+EAPI=8
+HOMEPAGE=https://lygia.xyz https://github.com/patriciogonzalezvivo/lygia
+KEYWORDS=~*
+SLOT=0
+SRC_URI=https://codeload.github.com/patriciogonzalezvivo/lygia/tar.gz/refs/tags/1.3.0 -> lygia-1.3.0.tar.gz
+_md5_=491daf25c39965355a7f6e7d8dd05519
